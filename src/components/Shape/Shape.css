@@ -1,0 +1,111 @@
+.shape-container {
+    pointer-events: auto;
+}
+
+.shape {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    user-select: none;
+}
+
+.shape:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.shape:active {
+    transform: scale(0.95);
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: #007bff;
+    border: 2px solid #0056b3;
+}
+
+.circle:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.square {
+    background-color: #28a745;
+    border: 2px solid #1e7e34;
+    border-radius: 2px;
+}
+
+.square:hover {
+    background-color: #1e7e34;
+    border-color: #155724;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 26px solid #ffc107;
+    border-radius: 0;
+    position: relative;
+}
+
+.triangle:hover {
+    border-bottom-color: #e0a800;
+    filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.5));
+}
+
+.triangle::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 26px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 2px solid #e0a800;
+}
+
+@keyframes placeShape {
+    0% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(90deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.shape-container {
+    animation: placeShape 0.3s ease-out;
+}
+
+.shape:hover::before {
+    content: '✕';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.triangle:hover::before {
+    top: -8px;
+    right: -8px;
+}
