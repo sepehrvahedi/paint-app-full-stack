@@ -3,3 +3,4 @@
 **/package-lock.json
 /java-backend/.idea/
 /java-backend/target/
+/java-backend/database.sqlite
