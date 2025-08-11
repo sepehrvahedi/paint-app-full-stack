@@ -1,3 +1,5 @@
 **/node_modules/
 /.idea/
 **/package-lock.json
+/java-backend/.idea/
+/java-backend/target/
